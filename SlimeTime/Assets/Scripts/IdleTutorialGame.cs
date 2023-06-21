@@ -302,26 +302,104 @@ public class IdleTutorialGame : MonoBehaviour
     //double
     public string NotationMethod(double x, string y)
     {
-        if (x > 1000)
+        if (x >= 1000000000000000000)
         {
+            // x is larger than 1 Quintillion
             var exponenet = System.Math.Floor(System.Math.Log10(System.Math.Abs(x)));
             var mantissa = x / System.Math.Pow(10, exponenet);
             return mantissa.ToString("F2") + "e" + exponenet;
         }
-        return x.ToString(y);
-        
+        else if (x >= 1000000000000000)
+        {
+            // x Q (Quadrillion)
+            var number = System.Math.Floor(x);
+            var compressed = number / 1000000000000000;
+            return compressed.ToString("F1") + "Q";
+        }
+        else if (x >= 1000000000000)
+        {
+            // x T (Trillion)
+            var number = System.Math.Floor(x);
+            var compressed = number / 1000000000000;
+            return compressed.ToString("F1") + "T";
+        }
+        else if (x >= 1000000000)
+        {
+            // x B (Billion)
+            var number = System.Math.Floor(x);
+            var compressed = number / 1000000000;
+            return compressed.ToString("F1") + "B";
+        }
+        else if (x >= 1000000)
+        {
+            // x M (Million)
+            var number = System.Math.Floor(x);
+            var compressed = number / 1000000;
+            return compressed.ToString("F1") + "M";
+        }
+        else if (x >= 1000)
+        {
+            // x K (Thousand)
+            var number = System.Math.Floor(x);
+            var compressed = number / 1000;
+            return compressed.ToString("F1") + "K";
+        }
+        else
+        {
+            // x is less than 1k
+            return x.ToString(y);
+        }
     }
     //float
     public string NotationMethod(float x, string y)
     {
-        if (x > 1000)
+        if (x >= 1000000000000000000)
         {
-            var exponenet = Mathf.Floor(Mathf.Log10(Mathf.Abs(x)));
-            var mantissa = x / Mathf.Pow(10, exponenet);
+            // x is larger than 1 Quintillion
+            var exponenet = System.Math.Floor(System.Math.Log10(System.Math.Abs(x)));
+            var mantissa = x / System.Math.Pow(10, exponenet);
             return mantissa.ToString("F2") + "e" + exponenet;
         }
-        return x.ToString(y);
-
+        else if (x >= 1000000000000000)
+        {
+            // x Q (Quadrillion)
+            var number = System.Math.Floor(x);
+            var compressed = number / 1000000000000000;
+            return compressed.ToString("F1") + "Q";
+        }
+        else if (x >= 1000000000000)
+        {
+            // x T (Trillion)
+            var number = System.Math.Floor(x);
+            var compressed = number / 1000000000000;
+            return compressed.ToString("F1") + "T";
+        }
+        else if (x >= 1000000000)
+        {
+            // x B (Billion)
+            var number = System.Math.Floor(x);
+            var compressed = number / 1000000000;
+            return compressed.ToString("F1") + "B";
+        }
+        else if (x >= 1000000)
+        {
+            // x M (Million)
+            var number = System.Math.Floor(x);
+            var compressed = number / 1000000;
+            return compressed.ToString("F1") + "M";
+        }
+        else if (x >= 1000)
+        {
+            // x K (Thousand)
+            var number = System.Math.Floor(x);
+            var compressed = number / 1000;
+            return compressed.ToString("F1") + "K";
+        }
+        else
+        {
+            // x is less than 1k
+            return x.ToString(y);
+        }
     }
 
 
