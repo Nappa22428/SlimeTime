@@ -74,6 +74,7 @@ public class IdleTutorialGame : MonoBehaviour
     public Image UpgradeBar2;
     public Image UpgradeBar3;
     public Image UpgradeBar4;
+    public Image slimeImage;
 
     //double
 
@@ -97,14 +98,17 @@ public class IdleTutorialGame : MonoBehaviour
     
 
     //game objects
-   public GameObject slimeGO;
+    public GameObject slimeGO;
 
     //public SpriteRenderer slimeRenderer;
+
+    //Colors array for color changer
+    public static int numColors = 1;
+    public Color[] colors = new Color[numColors];
 
     public void Start()
     {
         Application.targetFrameRate = 60;
-     
 
         //CanvasGroupChanger(true, mainMenuGroup);
         //CanvasGroupChanger(false, upgradesGroup);
@@ -116,6 +120,9 @@ public class IdleTutorialGame : MonoBehaviour
 
         SaveSystem.LoadPlayer(ref d);
         //Load();
+
+        //Set colors in colors array (it wouldn't work otherwise, questions will remain unanswered)
+        colors[0] = new Color(115 / 255f, 238 / 255f, 109 / 255f, 1); //Light green
     }
     public void CanvasGroupChanger(bool x, CanvasGroup y)
     {
@@ -296,6 +303,11 @@ public class IdleTutorialGame : MonoBehaviour
         #endregion
         #endregion
 
+        //test color changing
+        if (Input.GetKeyDown("c"))
+        {
+            ChangeColor(0);
+        }
    
         SaveSystem.SavePlayer(d);
     }
@@ -425,6 +437,14 @@ public class IdleTutorialGame : MonoBehaviour
         }
     }
     //buttons
+
+    //Change slime color
+    public void ChangeColor(int color)
+    {
+        Debug.Log("reached method to change color " + colors[color]);
+        slimeImage.color = colors[color];
+    }
+
     #region
     public void SlimeClicker()
     {
