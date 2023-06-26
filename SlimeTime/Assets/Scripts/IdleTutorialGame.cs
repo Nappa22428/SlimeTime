@@ -103,7 +103,7 @@ public class IdleTutorialGame : MonoBehaviour
     //public SpriteRenderer slimeRenderer;
 
     //Colors array for color changer
-    public static int numColors = 1;
+    public static int numColors = 5;
     public Color[] colors = new Color[numColors];
 
     public void Start()
@@ -122,7 +122,9 @@ public class IdleTutorialGame : MonoBehaviour
         //Load();
 
         //Set colors in colors array (it wouldn't work otherwise, questions will remain unanswered)
-        colors[0] = new Color(115 / 255f, 238 / 255f, 109 / 255f, 1); //Light green
+        colors[0] = new Color(90 / 255f, 154 / 255f, 43 / 255f, 1); //Green
+        colors[1] = new Color(161 / 255f, 25 / 255f, 17 / 255f, 1); //Red
+        colors[2] = new Color(15 / 255f, 100 / 255f, 140 / 255f, 1); //Blue
     }
     public void CanvasGroupChanger(bool x, CanvasGroup y)
     {
@@ -306,7 +308,7 @@ public class IdleTutorialGame : MonoBehaviour
         //test color changing
         if (Input.GetKeyDown("c"))
         {
-            ChangeColor(0);
+            ChangeColor(1);
         }
    
         SaveSystem.SavePlayer(d);
