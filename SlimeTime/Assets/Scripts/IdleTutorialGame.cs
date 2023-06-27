@@ -103,7 +103,7 @@ public class IdleTutorialGame : MonoBehaviour
     //public SpriteRenderer slimeRenderer;
 
     //Colors array for color changer
-    public static int numColors = 5;
+    public static int numColors = 3;
     public Color[] colors = new Color[numColors];
 
     public void Start()
@@ -444,7 +444,11 @@ public class IdleTutorialGame : MonoBehaviour
     public void ChangeColor(int color)
     {
         Debug.Log("reached method to change color " + colors[color]);
-        slimeImage.color = colors[color];
+
+        if (color < numColors && color >= 0)
+        {
+            slimeImage.color = colors[color];
+        }
     }
 
     #region
